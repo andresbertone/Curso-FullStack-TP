@@ -1,0 +1,201 @@
+/* Estilos generales */
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Estilos navbar */
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: inherit;
+    width: 100%;
+    background-color: lightgray;
+    margin: 0px 10px 0px 10px;
+}
+
+.header .navbar-toggler {
+    margin-right: 0.7rem;
+}
+
+.logo > img {
+    object-fit: cover;
+    width: 50px;
+    height: 50px;
+    margin: 0.7rem;
+}
+
+.menu {
+    display: block;
+    padding: 0.5rem;
+    text-decoration: none;
+    color: black;
+}
+
+.menu:hover {
+    background-color: #2196F3;
+    color: white;
+}
+
+.search {
+    display: flex;
+    padding: 0.7rem 0.5rem;
+}
+
+
+/* Estilos del contenido index.html */
+
+.section {
+    margin: 10px;
+    background-color: wheat;
+}
+
+.section > article {
+    padding: 10px;
+    text-align: center;
+}
+
+
+/* Estilos de las tarjetas */
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.card {
+    margin: 0px 10px 10px 10px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.3);
+}
+
+.card img {
+    object-fit: cover;
+    width: 100%;
+    border-bottom: 1px solid gray;
+}
+
+.card .product-description {
+    padding: 10px 20px;
+}
+
+.btn-buy {
+    padding: 10px;
+    width: 100%;
+}
+
+.product-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.product-price, .product-quota {
+    font-style: italic;    
+}
+
+.product-price {
+    font-size: 1.125rem;
+}
+
+.product-quota {
+    font-size: 1rem;
+}
+
+
+/* Estilos del contenido contact.html */
+
+.container-form {
+    margin: 10px;
+}
+
+.text h1::after {
+    display: block;
+    content: '';
+    width: 55px;
+    height: 3px;
+    background-color: #2196F3;
+    margin: 10px 0 10px;
+}
+
+.text p::after {
+    display: block;
+    content: '';
+    width: 55px;
+    height: 3px;
+    background-color: #2196F3;
+    margin: 10px 0 10px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+@media screen and (min-width: 600px) {
+    .contact-form {
+        flex-flow: row wrap;
+    }
+    
+    .form-group {
+        flex-grow: 1;
+        margin-right: 10px;
+    }
+
+    .form-group:nth-child(3) {
+        flex-basis: 100%;
+    }
+
+    .form-group:nth-child(4) {
+        flex-basis: 100%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .container-form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact-form {
+        justify-content: center;
+    }
+
+    .contact-form button {
+        margin-right: 10px;
+        flex-basis: 100%;
+    }
+    
+}
+
+
+/* Estilos para hacer responsive el navbar y el diseño de las tarjetas */
+
+@media screen and (min-width: 992px) {
+    .logo > img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .navbar-collapse {
+        flex: 0;
+    }
+
+    .menu {
+        padding: 1rem 0.5rem;
+        margin-right: 20px;
+    }
+
+    .card:hover {
+        margin: 0px 7px 11px 0px;
+        transition-duration: 600ms;
+        box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.3);
+    }
+}
