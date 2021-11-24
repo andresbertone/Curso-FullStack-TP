@@ -1,0 +1,46 @@
+.card {
+    margin: 0px 10px 10px 10px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.3);
+}
+
+.card img {
+    object-fit: cover;
+    width: 100%;
+    border-bottom: 1px solid gray;
+}
+
+.card .product-description {
+    padding: 10px 20px;
+}
+
+.btn-seemore {
+    padding: 10px;
+    width: 100%;
+}
+
+.product-name {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.product-price, .product-quota {
+    font-style: italic;    
+}
+
+.product-price {
+    font-size: 1.125rem;
+}
+
+.product-quota {
+    font-size: 1rem;
+}
+
+@media screen and (min-width: 992px) {
+    .card:hover {
+        margin: 0px 7px 11px 0px;
+        transition-duration: 600ms;
+        box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.3);
+    }
+}
