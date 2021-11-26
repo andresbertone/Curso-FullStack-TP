@@ -1,0 +1,9 @@
+.section {
+    margin: 10px;
+    background-color: wheat;
+}
+
+.section > article {
+    padding: 10px;
+    text-align: center;
+}
