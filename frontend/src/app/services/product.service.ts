@@ -15,7 +15,7 @@ export class ProductService {
       price: 888.00,
       quotas: 2,
       stock: 10,
-      brand: 'Tolsen'
+      idSupplier: 1
     },
     {
       id: 2,
@@ -25,7 +25,7 @@ export class ProductService {
       price: 489.00,
       quotas: 0,
       stock: 20,
-      brand: 'Bahco'
+      idSupplier: 2
     },
     {
       id: 3,
@@ -35,7 +35,7 @@ export class ProductService {
       price: 450.00,
       quotas: 2,
       stock: 1,
-      brand: 'Felo Aleman'
+      idSupplier: 3
     },
     {
       id: 4,
@@ -45,7 +45,7 @@ export class ProductService {
       price: 560.00,
       quotas: 2,
       stock: 5,
-      brand: 'Rega'
+      idSupplier: 4
     },
     {
       id: 5,
@@ -55,7 +55,7 @@ export class ProductService {
       price: 1975.00,
       quotas: 3,
       stock: 5,
-      brand: 'Adi'
+      idSupplier: 5
     },
     {
       id: 6,
@@ -65,7 +65,7 @@ export class ProductService {
       price: 2296.00,
       quotas: 4,
       stock: 3,
-      brand: 'Bahco'
+      idSupplier: 2
     },
     {
       id: 7,
@@ -75,7 +75,7 @@ export class ProductService {
       price: 1456.00,
       quotas: 2,
       stock: 18,
-      brand: 'Stanley'
+      idSupplier: 6
     },
     {
       id: 8,
@@ -85,7 +85,7 @@ export class ProductService {
       price: 1458.00,
       quotas: 2,
       stock: 6,
-      brand: 'Hamilton'
+      idSupplier: 7
     },
     {
       id: 9,
@@ -95,7 +95,7 @@ export class ProductService {
       price: 1090.50,
       quotas: 2,
       stock: 7,
-      brand: 'Bahco'
+      idSupplier: 2
     },
     {
       id: 10,
@@ -105,7 +105,7 @@ export class ProductService {
       price: 650.00,
       quotas: 0,
       stock: 1,
-      brand: 'Acindar'
+      idSupplier: 8
     },
     {
       id: 11,
@@ -115,7 +115,7 @@ export class ProductService {
       price: 420.00,
       quotas: 0,
       stock: 2,
-      brand: 'TEL'
+      idSupplier: 9
     },
     {
       id: 12,
@@ -125,7 +125,7 @@ export class ProductService {
       price: 989.90,
       quotas: 3,
       stock: 3,
-      brand: 'Dipra'
+      idSupplier: 10
     }
   ]; 
 

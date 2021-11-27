@@ -7,6 +7,6 @@ export interface ProductModel {
     price: number;
     quotas: number;
     stock: number;
-    brand: string;
+    idSupplier: number;
 
 }
