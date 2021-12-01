@@ -3,10 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProductsComponent } from './components/products/products.component';
+import { ProductComponent } from './components/product/product.component';
+import { BuscadorComponent } from './components/buscador/buscador.component';
 
 const routes: Routes = [
   {
-    path: '', // Si no se especifica una ruta, se muestra el home
+    path: '',
     redirectTo: 'home',
     pathMatch: 'full'
   },
@@ -16,15 +18,22 @@ const routes: Routes = [
   },
   {
     path: 'products',
-    component: ProductsComponent 
-    // Posiblemente tenga que hacer una ruta con un hijo para ver más detalle de los productos
+    component: ProductsComponent
+  },
+  {
+    path: 'product/:idProduct',
+    component: ProductComponent
+  },
+  {
+    path: 'search/:text',
+    component: BuscadorComponent,
   },
   {
     path: 'contact',
     component: ContactComponent
   },
   {
-    path: '**', // Si se especifica una ruta que no es válida, se muestra el home
+    path: '**',
     redirectTo: 'home',
     pathMatch: 'full'
   }

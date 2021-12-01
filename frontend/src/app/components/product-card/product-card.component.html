@@ -1,12 +1,17 @@
 <div class="card">
-    <div class="image">
-        <img src="../../../assets/images/Martillo.png" alt="Martillo">
+    <div class="image" (click)="seeProduct()">
+        <img [src]="product.image" [alt]="product.name">
     </div>
     <div class="product-description">
-        <p class="product-name">Martillo</p>
-        <p class="product-price">Precio: $888,00</p>
-        <p class="product-quota">Cuotas: 2 x $444,00</p>
-        <button class="btn btn-outline-primary btn-seemore">
+        <h4 class="product-name" data-bs-toggle="tooltip" data-bs-placement="top" [title]="product.name">{{ product.name }}</h4>
+
+        <p class="product-price">Precio: {{ product.price | currency }}</p>
+
+        <p class="product-quota" *ngIf="product.quotas !== 0">Cuotas: {{ product.quotas }} x {{ product.price/product.quotas | currency }}</p>
+
+        <p class="product-quota" data-bs-toggle="tooltip" data-bs-placement="top" title="No disponible" *ngIf="product.quotas === 0">Cuotas: No disponible</p>
+
+        <button class="btn btn-outline-primary btn-seemore" (click)="seeProduct()">
             <i class="fa fa-eye"></i> Ver más
         </button>
     </div>

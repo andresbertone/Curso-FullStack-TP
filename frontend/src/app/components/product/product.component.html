@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+    
+        <div class="col-md-4 my-2">
+            <img class="mx-auto d-block w-auto border border-dark border-3 rounded" [src]="product.image" [alt]="product.name">
+            
+            <br>
+
+            <div class="d-grid">
+                <a [routerLink]="'/products'" class="btn btn-outline-secondary d-none d-md-block"><i class="fa fa-arrow-left"></i> Volver</a>
+            </div>
+        </div>
+
+        <div class="col-md-8 my-2">
+    
+            <h2 class="text-center">{{ product.name }}</h2>
+            <hr>
+
+            <h4>{{ product.description }}</h4>
+            <br>
+
+            <h5 class="fw-bold">Precio: {{ product.price | currency }}</h5>
+            
+            <p *ngIf="product.quotas === 0">Cuotas: <small>No disponible</small></p>
+            <p *ngIf="product.quotas !== 0">Cuotas: <small>{{ product.quotas }} x {{ product.price/product.quotas | currency }}</small></p>
+
+            <p>En stock: {{ product.stock }} unidades</p>
+        </div>
+    </div>
+</div>

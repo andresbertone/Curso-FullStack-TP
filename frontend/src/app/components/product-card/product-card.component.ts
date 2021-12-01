@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { ProductModel } from './../../models/product-model';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-card',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductCardComponent implements OnInit {
 
-  constructor() { }
+  @Input() product!: ProductModel;
+  @Input() idProduct!: string;
+
+  // @Output() productSelected: EventEmitter<any> = new EventEmitter();
+
+  constructor( private router: Router ) {}
 
   ngOnInit(): void {
   }
+
+  seeProduct() {
+    this.router.navigate( ["/product", this.idProduct] );
+  };
 
 }

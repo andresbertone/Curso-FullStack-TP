@@ -1,22 +1,5 @@
 <div class="cards-container">
-    
-    <div class="card" *ngFor="let product of products">
-        <div class="image">
-            <img [src]="product.image" [alt]="product.name">
-        </div>
-        <div class="product-description">
-            <h4 class="product-name" data-bs-toggle="tooltip" data-bs-placement="top" [title]="product.name">{{ product.name }}</h4>
 
-            <p class="product-price">Precio: {{ product.price | currency }}</p>
-
-            <p class="product-quota" *ngIf="product.quotas !== 0">Cuotas: {{ product.quotas }} x {{ product.price/product.quotas | currency }}</p>
-
-            <p class="product-quota" *ngIf="product.quotas === 0">Cuotas: No disponible</p>
-
-            <button class="btn btn-outline-primary btn-seemore">
-                <i class="fa fa-eye"></i> Ver más
-            </button>
-        </div>
-    </div>
+    <app-product-card [product]="product" [idProduct]="product.id" *ngFor="let product of products"></app-product-card>
 
 </div>

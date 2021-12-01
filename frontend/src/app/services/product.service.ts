@@ -133,5 +133,22 @@ export class ProductService {
 
   getProducts(): ProductModel[] {
     return this.products;
-  }
+  };
+
+  getProduct( idProduct: string ): ProductModel {
+    let objProduct!: ProductModel;
+    this.products.forEach( ( product ) => {
+      if ( product.id === idProduct ) {
+        objProduct = product;
+      }
+    });
+    return objProduct;
+  };
+
+  searchProducts( text: string ): ProductModel[] {
+    let productsArray: ProductModel[] = [];
+    text.toLowerCase();
+    productsArray = this.products.filter( ( product ) => product.name.toLowerCase().includes( text ));
+    return productsArray;
+  };
 }

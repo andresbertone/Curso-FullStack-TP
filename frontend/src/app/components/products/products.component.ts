@@ -1,6 +1,8 @@
 import { ProductModel } from './../../models/product-model';
 import { ProductService } from './../../services/product.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-products',
@@ -11,7 +13,9 @@ export class ProductsComponent implements OnInit {
 
   products: ProductModel[] = [];
 
-  constructor( private productService: ProductService ) { }
+  constructor( 
+    private productService: ProductService,
+    private router: Router ) { }
 
   ngOnInit(): void {
 
@@ -21,6 +25,6 @@ export class ProductsComponent implements OnInit {
 
   getProducts() {
     this.products = this.productService.getProducts();
-  }
+  };
 
 }
