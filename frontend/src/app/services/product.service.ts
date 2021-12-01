@@ -127,7 +127,7 @@ export class ProductService {
       stock: 3,
       idSupplier: "10"
     }
-  ]; 
+  ];
 
   constructor() { }
 
@@ -135,14 +135,8 @@ export class ProductService {
     return this.products;
   };
 
-  getProduct( idProduct: string ): ProductModel {
-    let objProduct!: ProductModel;
-    this.products.forEach( ( product ) => {
-      if ( product.id === idProduct ) {
-        objProduct = product;
-      }
-    });
-    return objProduct;
+  getProduct( idProduct: string ): any {
+    return this.products.find( objArticulo => objArticulo.id === idProduct );
   };
 
   searchProducts( text: string ): ProductModel[] {
