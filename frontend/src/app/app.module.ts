@@ -9,7 +9,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ProductComponent } from './components/product/product.component';
-import { BuscadorComponent } from './components/buscador/buscador.component';
+import { SearcherComponent } from './components/searcher/searcher.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,7 @@ import { BuscadorComponent } from './components/buscador/buscador.component';
     ProductsComponent,
     ContactComponent,
     ProductComponent,
-    BuscadorComponent
+    SearcherComponent
   ],
   imports: [
     BrowserModule,

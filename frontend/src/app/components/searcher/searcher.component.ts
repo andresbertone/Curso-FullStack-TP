@@ -1,14 +1,14 @@
-import { ProductModel } from './../../models/product-model';
-import { ProductService } from './../../services/product.service';
+import { ProductModel } from '../../models/product-model';
+import { ProductService } from '../../services/product.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-buscador',
-  templateUrl: './buscador.component.html',
-  styleUrls: ['./buscador.component.css']
+  selector: 'app-searcher',
+  templateUrl: './searcher.component.html',
+  styleUrls: ['./searcher.component.css']
 })
-export class BuscadorComponent implements OnInit {
+export class SearcherComponent implements OnInit {
 
   products: ProductModel[] = [];
 

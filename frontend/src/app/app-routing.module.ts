@@ -4,7 +4,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ProductComponent } from './components/product/product.component';
-import { BuscadorComponent } from './components/buscador/buscador.component';
+import { SearcherComponent } from './components/searcher/searcher.component';
 
 const routes: Routes = [
   {
@@ -26,7 +26,7 @@ const routes: Routes = [
   },
   {
     path: 'search/:text',
-    component: BuscadorComponent,
+    component: SearcherComponent,
   },
   {
     path: 'contact',

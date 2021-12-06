@@ -15,10 +15,10 @@
             <a class="list-group-item-action menu" aria-current="page" routerLinkActive="list-group-item active" routerLink="products">Productos</a>
             <a class="list-group-item-action menu" aria-current="page" routerLinkActive="list-group-item active" routerLink="contact">Contacto</a>
 
-            <form class="search">
+            <div class="search">
                 <input class="form-control me-2" type="search" placeholder="Buscar producto..." aria-label="Search" #productFinding (keyup.enter)="searchProduct(productFinding.value)">
                 <button class="btn btn-outline-primary" type="button" (click)="searchProduct(productFinding.value)">Buscar</button>
-            </form>
+            </div>
 
         </div>
         
