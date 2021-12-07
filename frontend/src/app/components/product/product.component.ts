@@ -11,17 +11,22 @@ import { ActivatedRoute } from '@angular/router';
 export class ProductComponent implements OnInit {
 
   product!: ProductModel;
+  loading: boolean = false;
 
-  constructor( private activatedRoute: ActivatedRoute, private productService: ProductService ) {
-                   
-  }
+  constructor( private activatedRoute: ActivatedRoute, private productService: ProductService ) {}
               
   ngOnInit(): void {
-    
-    this.activatedRoute.params.subscribe( params => {
-      this.product = this.productService.getProduct( params['idProduct'] );
-    });
-                
+    this.loading = true;
+    this.loadProduct();
   }
+
+  loadProduct() {
+    const id = this.activatedRoute.snapshot.paramMap.get('idProduct');
+    this.productService.getProduct(id).subscribe(
+      prod => {
+        this.product = prod;
+        this.loading = false;
+      });
+  };
 
 }

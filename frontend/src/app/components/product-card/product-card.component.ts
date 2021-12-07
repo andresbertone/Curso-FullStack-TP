@@ -1,5 +1,5 @@
 import { ProductModel } from './../../models/product-model';
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,8 +11,6 @@ export class ProductCardComponent implements OnInit {
 
   @Input() product!: ProductModel;
   @Input() idProduct!: string;
-
-  // @Output() productSelected: EventEmitter<any> = new EventEmitter();
 
   constructor( private router: Router ) {}
 

@@ -1,4 +1,13 @@
-<div class="container">
+<div class="alert alert-primary text-center mt-5" *ngIf="loading">
+    <p class="fs-3 fw-bold">Cargando</p>
+    <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+    <p class="fs-6 py-2">Por favor espere</p>
+</div>
+
+
+<div class="container" *ngIf="!loading">
     <div class="row">
     
         <div class="col-md-4 my-2">
@@ -7,7 +16,7 @@
             <br>
 
             <div class="d-grid">
-                <a [routerLink]="'/products'" class="btn btn-outline-secondary d-none d-md-block"><i class="fa fa-arrow-left"></i> Volver</a>
+                <a [routerLink]="['/products']" class="btn btn-outline-secondary d-none d-md-block"><i class="fa fa-arrow-left"></i> Volver</a>
             </div>
         </div>
 
