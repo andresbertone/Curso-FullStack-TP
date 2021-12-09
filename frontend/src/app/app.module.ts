@@ -8,8 +8,8 @@ import { ProductCardComponent } from './components/product-card/product-card.com
 import { HomeComponent } from './components/home/home.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ContactComponent } from './components/contact/contact.component';
-import { ProductComponent } from './components/product/product.component';
 import { SearcherComponent } from './components/searcher/searcher.component';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { SearcherComponent } from './components/searcher/searcher.component';
     HomeComponent,
     ProductsComponent,
     ContactComponent,
-    ProductComponent,
+    ProductDetailComponent,
     SearcherComponent
   ],
   imports: [

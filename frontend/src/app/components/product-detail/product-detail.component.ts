@@ -4,11 +4,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-product',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css']
+  selector: 'app-product-detail',
+  templateUrl: './product-detail.component.html',
+  styleUrls: ['./product-detail.component.css']
 })
-export class ProductComponent implements OnInit {
+export class ProductDetailComponent implements OnInit {
 
   product!: ProductModel;
   loading: boolean = false;

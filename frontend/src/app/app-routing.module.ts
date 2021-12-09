@@ -3,8 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProductsComponent } from './components/products/products.component';
-import { ProductComponent } from './components/product/product.component';
 import { SearcherComponent } from './components/searcher/searcher.component';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 
 const routes: Routes = [
   {
@@ -22,7 +22,7 @@ const routes: Routes = [
   },
   {
     path: 'product/:idProduct',
-    component: ProductComponent
+    component: ProductDetailComponent
   },
   {
     path: 'search/:text',
