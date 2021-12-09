@@ -10,6 +10,7 @@ import { ProductsComponent } from './components/products/products.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { SearcherComponent } from './components/searcher/searcher.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { SearchFieldComponent } from './components/search-field/search-field.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
     ProductsComponent,
     ContactComponent,
     ProductDetailComponent,
-    SearcherComponent
+    SearcherComponent,
+    SearchFieldComponent
   ],
   imports: [
     BrowserModule,

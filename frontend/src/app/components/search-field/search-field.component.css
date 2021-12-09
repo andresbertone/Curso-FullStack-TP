@@ -1,0 +1,10 @@
+.search {
+    display: flex;
+    padding: 0.7rem 0.5rem;
+}
+
+@media screen and (min-width: 992px) {
+    .form-control {
+        width: auto;
+    }
+}

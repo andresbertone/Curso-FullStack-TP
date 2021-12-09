@@ -13,8 +13,4 @@ export class NavComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  searchProduct( text:string ) {
-    this.router.navigate(['/search', text]);
-  };
-
 }
