@@ -33,7 +33,8 @@
             <p *ngIf="product.quotas === 0">Cuotas: <small>No disponible</small></p>
             <p *ngIf="product.quotas !== 0">Cuotas: <small>{{ product.quotas }} x {{ product.price/product.quotas | currency }}</small></p>
 
-            <p>En stock: {{ product.stock }} unidades</p>
+            <p *ngIf="product.stock > 0">En stock: {{ product.stock }} unidades</p>
+            <p *ngIf="product.stock <= 0" [ngStyle]="{ 'color': 'red' }">No hay stock disponible</p>
         </div>
 
         <div class="d-md-none mb-2">
