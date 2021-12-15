@@ -1,33 +1,24 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from "@angular/common/http";
+import { FormsModule } from '@angular/forms';
+
 import { AppRoutingModule } from './app-routing.module';
+import { SharedModule } from './modules/shared/shared.module';
 import { AppComponent } from './app.component';
-import { NavComponent } from './components/shared/nav/nav.component';
-import { ProductCardComponent } from './components/product-card/product-card.component';
-import { HomeComponent } from './components/home/home.component';
-import { ProductsComponent } from './components/products/products.component';
-import { ContactComponent } from './components/contact/contact.component';
-import { SearcherComponent } from './components/searcher/searcher.component';
-import { ProductDetailComponent } from './components/product-detail/product-detail.component';
-import { SearchFieldComponent } from './components/search-field/search-field.component';
+import { SearchFilterPipe } from './shared/pipes/search-filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent,
-    ProductCardComponent,
-    HomeComponent,
-    ProductsComponent,
-    ContactComponent,
-    ProductDetailComponent,
-    SearcherComponent,
-    SearchFieldComponent
+    SearchFilterPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

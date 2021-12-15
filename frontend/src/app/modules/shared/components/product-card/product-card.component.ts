@@ -1,6 +1,7 @@
-import { ProductModel } from './../../models/product-model';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
+import { ProductModel } from '@app/models/product-model';
 
 @Component({
   selector: 'app-product-card',

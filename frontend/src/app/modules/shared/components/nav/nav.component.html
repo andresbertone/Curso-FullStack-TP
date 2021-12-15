@@ -12,10 +12,21 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             
             <a class="list-group-item-action menu" aria-current="page" routerLinkActive="list-group-item active" routerLink="home">Inicio</a>
-            <a class="list-group-item-action menu" aria-current="page" routerLinkActive="list-group-item active" routerLink="products">Productos</a>
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle list-group-item-action menu" routerLinkActive="list-group-item active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Productos
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item menu" [routerLink]="['products']">Ver productos</a></li>
+                    <li><a class="dropdown-item menu" [routerLink]="['products/add-product']">Nuevo producto</a></li>
+                </ul>
+            </div>
             <a class="list-group-item-action menu" aria-current="page" routerLinkActive="list-group-item active" routerLink="contact">Contacto</a>
 
             <app-search-field></app-search-field>
+
+            <button class="btn btn-outline-success" type="button" (click)="onLogin()" *ngIf="!logged">Login</button>
+            <button class="btn btn-outline-danger" type="button" (click)="onLogout()" *ngIf="logged">Logout</button>
 
         </div>
         

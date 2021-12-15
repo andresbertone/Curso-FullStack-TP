@@ -1,16 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ProductModel } from './../models/product-model';
-import { ObjResponseArray } from '../models/objResponseArray';
-import { ObjResponse } from '../models/objResponse';
-import { map, Observable } from 'rxjs';
+import { ProductModel } from '../../../shared/models/product-model';
+import { ObjResponseArray } from '../../../shared/models/objResponseArray';
+import { ObjResponse } from '../../../shared/models/objResponse';
+import { BehaviorSubject, map, Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
-@Injectable({
-  providedIn: 'root'
-})
+// @Injectable({
+//   providedIn: 'root'
+// })
+@Injectable()
 export class ProductService {
 
-  baseUrl: string = `http://localhost:3000`;
+  baseUrl: string = environment.baseUrl;
+  initialProducts!: BehaviorSubject<ProductModel[]>; //Linea agregada
+  products!: Observable<ProductModel[]> // Linea agregada
 
   constructor( private http: HttpClient ) { }
 
@@ -26,7 +30,7 @@ export class ProductService {
     );
   };
   
-  searchProducts( text: string | null ): Observable<ProductModel[]> {
+  filterProducts( text: string | null ): Observable<ProductModel[]> {
     return this.http.get<ObjResponseArray>(`${ this.baseUrl }/products?name=${ text }`).pipe(
       map( res => res.data )
     );

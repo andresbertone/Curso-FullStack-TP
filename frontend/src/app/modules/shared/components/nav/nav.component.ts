@@ -8,9 +8,21 @@ import { Router } from '@angular/router';
 })
 export class NavComponent implements OnInit {
 
+  logged: boolean = false;
+
   constructor( private router: Router ) { }
 
   ngOnInit(): void {
   }
+
+  onLogin() {
+    this.logged = true;
+    window.localStorage.setItem('logged', 'true');
+  };
+
+  onLogout() {
+    this.logged = false;
+    window.localStorage.removeItem('logged');
+  };
 
 }

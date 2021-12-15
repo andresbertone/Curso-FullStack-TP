@@ -21,7 +21,12 @@
     "lib": [
       "es2020",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@app/guards/*": ["src/app/shared/guards/*"],
+      "@app/models/*": ["src/app/shared/models/*"],
+      "@app/services/*": ["src/app/modules/shared/services/*"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

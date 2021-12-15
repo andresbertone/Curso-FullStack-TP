@@ -1,6 +1,7 @@
-import { ProductModel } from './../../models/product-model';
-import { ProductService } from './../../services/product.service';
 import { Component, OnInit } from '@angular/core';
+
+import { ProductModel } from '@app/models/product-model';
+import { ProductService } from '@app/services/product.service';
 
 @Component({
   selector: 'app-products',
@@ -11,6 +12,7 @@ export class ProductsComponent implements OnInit {
 
   products: ProductModel[] = [];
   loading: boolean = false;
+  productFinding: string = '';
 
   constructor( private productService: ProductService ) { }
 

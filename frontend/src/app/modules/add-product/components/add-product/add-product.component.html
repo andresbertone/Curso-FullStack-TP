@@ -1,0 +1,64 @@
+<h3 class="mb-3 text-center text-decoration-underline">Nuevo producto</h3>
+
+<form>
+    <div class="row g-3 justify-content-md-center mt-2">
+        <div class="col-md-5">
+          <label for="inputProductName" class="form-label">Nombre del producto</label>
+          <input type="text" class="form-control" id="inputProductName" placeholder="Escriba el nombre del producto" autocomplete="off" required>
+        </div>
+    
+        <div class="col-md-4">
+            <label for="inputSupplier" class="form-label">Proveedor</label>
+            <select id="inputSupplier" class="form-select" required>
+              <option selected>Elije un proveedor...</option>
+              <option>...</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row g-3 justify-content-md-center mt-2">
+        <div class="col-md-9">
+            <label for="inputProductDescription" class="form-label">Descripción del producto</label>
+            <textarea class="form-control" id="inputProductDescription" placeholder="Escriba una descripción del producto" rows="2"></textarea>
+        </div>
+    </div>
+
+    <div class="row g-3 justify-content-md-center mt-2">
+        <div class="col-md-3">
+          <label for="inputProductAmount" class="form-label">Cantidad</label>
+          <input type="number" class="form-control" id="inputProductAmount" placeholder="Ingrese cantidad de producto" required>
+        </div>
+        
+        <div class="col-md-3">
+            <label for="inputProductPrice" class="form-label">Precio</label>
+            <div class="input-group flex-nowrap">
+                <span class="input-group-text">$</span>
+                <input type="number" class="form-control" id="inputProductPrice" placeholder="Precio del producto" required>
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+          <label for="inputProductQuota" class="form-label">Cuotas</label>
+          <input type="number" class="form-control" id="inputProductQuota" placeholder="Ingrese las cuotas disponibles">
+        </div>
+    </div>
+
+    <div class="row g-3 justify-content-md-center mt-2">
+        <div class="col-md-9">
+            <label for="inputProductImage" class="form-label">Imagen del producto</label>
+            <input class="form-control" type="text" id="inputProductImage" placeholder="Ingrese el link de la imagen" autocomplete="off" required>
+        </div>
+    </div>
+    
+    <div class="row g-3 justify-content-md-center mt-2">
+        <div class="col-md-9 mb-2">
+            <button type="button" class="btn btn-outline-danger me-2" (click)="cancel()">
+                Cancelar
+            </button>
+            
+            <button type="submit" class="btn btn-outline-success" (click)="save()">
+                <i class="fa fa-save"></i> Guardar
+            </button>
+        </div>
+    </div>
+</form>
