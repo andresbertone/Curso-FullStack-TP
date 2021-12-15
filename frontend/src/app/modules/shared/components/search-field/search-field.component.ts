@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { ProductService } from '@app/services/product.service';
+import { ProductService } from '@app/product-service/product.service';
 
 @Component({
   selector: 'app-search-field',
@@ -11,6 +11,8 @@ import { ProductService } from '@app/services/product.service';
 export class SearchFieldComponent implements OnInit {
 
   productFinding: string = '';
+
+  filteredProducts: any[] = [];
 
   constructor( private router: Router, private productService: ProductService ) { }
 
@@ -26,7 +28,9 @@ export class SearchFieldComponent implements OnInit {
   // Forma 2
   searchProduct( $event: any ) {
     $event.preventDefault();  // Evita que se envíe el formulario
-    this.productService.filterProducts( this.productFinding.trim() );
+    this.productService.filterProducts( this.productFinding.trim() ).subscribe(
+      product => this.filteredProducts = product
+    );
     // this.router.navigate(['/search', this.productFinding.trim()]); // .trim() Elimina los espacion en blanco
     this.productFinding = '';
   };

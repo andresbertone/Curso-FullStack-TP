@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { ProductModel } from '@app/models/product-model';
-import { ProductService } from '@app/services/product.service';
+import { ProductService } from '@app/product-service/product.service';
 
 
 @Component({
@@ -24,11 +24,13 @@ export class ProductDetailComponent implements OnInit {
 
   loadProduct() {
     const id = this.activatedRoute.snapshot.paramMap.get('idProduct');
-    this.productService.getProduct(id).subscribe(
-      prod => {
-        this.product = prod;
-        this.loading = false;
-      });
+    if (id) {
+      this.productService.getProduct(id).subscribe(
+        prod => {
+          this.product = prod;
+          this.loading = false;
+        });
+    }
   };
 
 }

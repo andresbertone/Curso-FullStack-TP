@@ -10,7 +10,10 @@ import { NavComponent } from './components/nav/nav.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 
-import { ProductService } from '@app/services/product.service';
+import { ProductService } from '@app/product-service/product.service';
+import { SupplierService } from '@app/supplier-service/supplier.service';
+
+import { SearchFilterPipe } from '../../shared/pipes/search-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,8 @@ import { ProductService } from '@app/services/product.service';
     NavComponent,
     ProductDetailComponent,
     ProductsComponent,
-    SearchFieldComponent
+    SearchFieldComponent,
+    SearchFilterPipe
   ],
   imports: [
     CommonModule,
@@ -32,8 +36,9 @@ import { ProductService } from '@app/services/product.service';
     NavComponent,
     ProductDetailComponent,
     ProductsComponent,
-    SearchFieldComponent
+    SearchFieldComponent,
+    SearchFilterPipe
   ],
-  providers: [ProductService]
+  providers: [ProductService, SupplierService]
 })
 export class SharedModule { }

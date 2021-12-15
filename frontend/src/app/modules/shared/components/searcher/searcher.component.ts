@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { ProductService } from 'src/app/modules/shared/services/product.service';
+import { ProductService } from '@app/product-service/product.service';
 
 @Component({
   selector: 'app-searcher',

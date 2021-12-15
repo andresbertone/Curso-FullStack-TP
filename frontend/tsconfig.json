@@ -25,7 +25,8 @@
     "paths": {
       "@app/guards/*": ["src/app/shared/guards/*"],
       "@app/models/*": ["src/app/shared/models/*"],
-      "@app/services/*": ["src/app/modules/shared/services/*"]
+      "@app/product-service/*": ["src/app/modules/shared/services/product/*"],
+      "@app/supplier-service/*": ["src/app/modules/shared/services/supplier/*"]
     }
   },
   "angularCompilerOptions": {

@@ -6,12 +6,10 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './modules/shared/shared.module';
 import { AppComponent } from './app.component';
-import { SearchFilterPipe } from './shared/pipes/search-filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchFilterPipe,
   ],
   imports: [
     BrowserModule,

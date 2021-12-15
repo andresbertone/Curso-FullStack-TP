@@ -1,6 +1,6 @@
 import { ProductModel } from "./product-model";
 
-export interface ObjResponse {
+export interface ObjProductResponse {
     data:  ProductModel;
     error: boolean;
 }
