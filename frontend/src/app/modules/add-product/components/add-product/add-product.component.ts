@@ -46,7 +46,7 @@ export class AddProductComponent implements OnInit {
 
   formIsValid() {
     if ( this.product.name && this.product.image && this.product.price && this.product.stock && this.product.idSupplier ) {
-      if ( this.product.stock > 0 && this.product.price > 0 && ( this.product.quotas > 0 || this.product.quotas == null ) ) {
+      if ( this.product.stock > 0 && this.product.price > 0 && ( this.product.quotas > 0 || this.product.quotas === undefined ) ) {
         return true;
       } else {
         return false;
