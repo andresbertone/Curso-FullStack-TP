@@ -7,9 +7,9 @@
 
         <p class="product-price">Precio: {{ product.price | currency }}</p>
 
-        <p class="product-quota" *ngIf="product.quotas !== 0">Cuotas: {{ product.quotas }} x {{ product.price/product.quotas | currency }}</p>
+        <p class="product-quota" *ngIf="product.quotas > 1">Cuotas: {{ product.quotas }} x {{ product.price/product.quotas | currency }}</p>
 
-        <p class="product-quota" data-bs-toggle="tooltip" data-bs-placement="top" title="No disponible" *ngIf="product.quotas === 0">Cuotas: No disponible</p>
+        <p class="product-quota" data-bs-toggle="tooltip" data-bs-placement="top" title="No disponible" *ngIf="product.quotas === 1">Cuotas: No disponible</p>
 
         <button class="btn btn-outline-primary btn-seemore" (click)="seeProduct()">
             <i class="fa fa-eye"></i> Ver más
