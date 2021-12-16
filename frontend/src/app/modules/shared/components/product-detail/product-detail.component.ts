@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { ProductModel } from '@app/models/product-model';
-import { ProductService } from '@app/product-service/product.service';
+import { SupplierModel } from '@app/models/supplier-model';
 
+import { ProductService } from '@app/product-service/product.service';
+import { SupplierService } from '@app/supplier-service/supplier.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -13,10 +15,13 @@ import { ProductService } from '@app/product-service/product.service';
 export class ProductDetailComponent implements OnInit {
 
   product!: ProductModel;
+  supplier!: SupplierModel;
+
   loading: boolean = false;
 
   constructor( private activatedRoute: ActivatedRoute, 
                private productService: ProductService,
+               private supplierService: SupplierService,
                private router: Router ) {}
               
   ngOnInit(): void {
@@ -25,13 +30,24 @@ export class ProductDetailComponent implements OnInit {
   }
 
   loadProduct() {
-    const id = this.activatedRoute.snapshot.paramMap.get('idProduct');
-    if (id) {
-      this.productService.getProduct(id).subscribe(
+    const paramProductId = this.activatedRoute.snapshot.paramMap.get('idProduct');
+    if ( paramProductId ) {
+      this.productService.getProduct(paramProductId).subscribe(
         (product) => {
           this.product = product;
+          this.loadSupplier();
           this.loading = false;
         });
+    }
+  };
+
+  loadSupplier() {
+    if ( this.product.idSupplier ) {
+      this.supplierService.getSupplier(this.product.idSupplier).subscribe(
+        (supplier) => {
+          this.supplier = supplier;
+        }
+      )
     }
   };
 
