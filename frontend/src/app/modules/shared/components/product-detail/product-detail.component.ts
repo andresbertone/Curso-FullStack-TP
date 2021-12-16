@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { ProductModel } from '@app/models/product-model';
 import { ProductService } from '@app/product-service/product.service';
@@ -15,7 +15,9 @@ export class ProductDetailComponent implements OnInit {
   product!: ProductModel;
   loading: boolean = false;
 
-  constructor( private activatedRoute: ActivatedRoute, private productService: ProductService ) {}
+  constructor( private activatedRoute: ActivatedRoute, 
+               private productService: ProductService,
+               private router: Router ) {}
               
   ngOnInit(): void {
     this.loading = true;
@@ -31,6 +33,14 @@ export class ProductDetailComponent implements OnInit {
           this.loading = false;
         });
     }
+  };
+
+  deleteProduct( productId: string ) {
+    this.productService.deleteProduct(productId).subscribe(
+      () => {
+        this.router.navigate(['/products']);
+      }
+    );
   };
 
 }

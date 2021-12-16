@@ -11,7 +11,7 @@
     <h3 class="my-3 text-center text-decoration-underline">Editar producto</h3>
     
     <form (ngSubmit)="save()">
-        <div class="row g-3 justify-content-md-center mt-2">
+        <div class="row g-3 justify-content-md-center mt-2 mx-2">
             <div class="col-md-5">
               <label for="inputProductName" class="form-label">Nombre del producto</label>
               <input type="text" class="form-control" id="inputProductName" name="inputProductName" placeholder="Escriba el nombre del producto" [(ngModel)]="product.name" autocomplete="off" required>
@@ -25,14 +25,14 @@
             </div>
         </div>
     
-        <div class="row g-3 justify-content-md-center mt-2">
+        <div class="row g-3 justify-content-md-center mt-2 mx-2">
             <div class="col-md-9">
                 <label for="inputProductDescription" class="form-label">Descripción del producto</label>
                 <textarea class="form-control" id="inputProductDescription" name="inputProductDescription" placeholder="Escriba una descripción del producto" rows="2" [(ngModel)]="product.description"></textarea>
             </div>
         </div>
     
-        <div class="row g-3 justify-content-md-center mt-2">
+        <div class="row g-3 justify-content-md-center mt-2 mx-2">
             <div class="col-md-3">
               <label for="inputProductAmount" class="form-label">Cantidad</label>
               <input type="number" min="0" class="form-control" id="inputProductAmount" name="inputProductAmount" placeholder="Ingrese cantidad de producto" [(ngModel)]="product.stock" required>
@@ -52,14 +52,14 @@
             </div>
         </div>
     
-        <div class="row g-3 justify-content-md-center mt-2">
+        <div class="row g-3 justify-content-md-center mt-2 mx-2">
             <div class="col-md-9">
                 <label for="inputProductImage" class="form-label">Imagen del producto</label>
                 <input class="form-control" type="text" id="inputProductImage" name="inputProductImage" placeholder="Ingrese el link de la imagen" autocomplete="off" [(ngModel)]="product.image" required>
             </div>
         </div>
         
-        <div class="row g-3 justify-content-md-center mt-2">
+        <div class="row g-3 justify-content-md-center mt-2 mx-2">
             <div class="col-md-9 mb-2">
                 <button type="button" class="btn btn-outline-danger me-2" (click)="cancel()">
                     Cancelar

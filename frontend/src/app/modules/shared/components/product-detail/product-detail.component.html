@@ -39,7 +39,7 @@
             <p *ngIf="product.stock <= 0" [ngStyle]="{ 'color': 'red' }">No hay stock disponible</p>
 
             <div class="col-md-8">
-                <a class="btn btn-outline-danger d-none d-md-inline me-1">
+                <a class="btn btn-outline-danger d-none d-md-inline me-1" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <i class="fa fa-trash"></i> Eliminar
                 </a>
                 <a [routerLink]="['/products/edit-product', product._id]" class="btn btn-outline-warning d-none d-md-inline">
@@ -52,7 +52,7 @@
             <a [routerLink]="['/products/edit-product', product._id]" class="btn btn-outline-warning d-block d-sm-block mb-2">
                 <i class="fa fa-pencil"></i> Editar
             </a>
-            <a class="btn btn-outline-danger d-block d-sm-block mb-2">
+            <a class="btn btn-outline-danger d-block d-sm-block mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <i class="fa fa-trash"></i> Eliminar
             </a>
             <a [routerLink]="['/products']" class="btn btn-outline-secondary d-block d-sm-block">
@@ -61,3 +61,5 @@
         </div>
     </div>
 </div>
+
+<app-alert (onDelete)="deleteProduct( product._id )"></app-alert>

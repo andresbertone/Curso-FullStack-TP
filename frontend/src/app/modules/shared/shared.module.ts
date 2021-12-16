@@ -9,11 +9,10 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
 import { NavComponent } from './components/nav/nav.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
+import { AlertComponent } from './components/alert/alert.component';
 
 import { ProductService } from '@app/product-service/product.service';
 import { SupplierService } from '@app/supplier-service/supplier.service';
-
-import { SearchFilterPipe } from '../../shared/pipes/search-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +22,7 @@ import { SearchFilterPipe } from '../../shared/pipes/search-filter.pipe';
     ProductDetailComponent,
     ProductsComponent,
     SearchFieldComponent,
-    SearchFilterPipe
+    AlertComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +36,7 @@ import { SearchFilterPipe } from '../../shared/pipes/search-filter.pipe';
     ProductDetailComponent,
     ProductsComponent,
     SearchFieldComponent,
-    SearchFilterPipe
+    AlertComponent
   ],
   providers: [ProductService, SupplierService]
 })

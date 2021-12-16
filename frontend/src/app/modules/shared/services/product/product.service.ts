@@ -63,6 +63,12 @@ export class ProductService {
     return this.http.put<ObjProductResponse>(`${ this.baseUrl }/products/${ product._id }`, product).pipe(
       map( (res) => res.data )
     );
-  }
+  };
+
+  deleteProduct( idProduct: string ): Observable<ProductModel> {
+    return this.http.delete<ObjProductResponse>(`${ this.baseUrl }/products/${ idProduct }`).pipe(
+      map( (res) => res.data )
+    );
+  };
 
 }
