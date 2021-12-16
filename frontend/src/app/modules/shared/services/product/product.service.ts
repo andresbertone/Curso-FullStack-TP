@@ -36,7 +36,7 @@ export class ProductService {
 
   getProduct( idProduct: string ): Observable<ProductModel> {
     return this.http.get<ObjProductResponse>(`${ this.baseUrl }/products/${ idProduct }`).pipe(
-      map( res => res.data )
+      map( (res) => res.data )
     );
   };
 
@@ -49,12 +49,20 @@ export class ProductService {
     console.log('BehaviorSubject Actualizado',this.products$.value); // TODO: Borrar console.log
   };
 
-  addProduct( product: ProductModel ) {
-    return this.http.post(`${ this.baseUrl }/products`, product);
+  addProduct( product: ProductModel ): Observable<ProductModel> {
+    return this.http.post<ObjProductResponse>(`${ this.baseUrl }/products`, product).pipe(
+      map( (res) => res.data)
+    );
   };
 
   resetProducts() {
     this.getProductsFromApi();
   };
+
+  updateProduct( product: ProductModel ): Observable<ProductModel> {
+    return this.http.put<ObjProductResponse>(`${ this.baseUrl }/products/${ product._id }`, product).pipe(
+      map( (res) => res.data )
+    );
+  }
 
 }

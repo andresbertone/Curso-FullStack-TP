@@ -16,7 +16,9 @@
             <br>
 
             <div class="d-grid">
-                <a [routerLink]="['/products']" class="btn btn-outline-secondary d-none d-md-block"><i class="fa fa-arrow-left"></i> Volver</a>
+                <a [routerLink]="['/products']" class="btn btn-outline-secondary d-none d-md-block mb-1">
+                    <i class="fa fa-arrow-left"></i> Volver
+                </a>
             </div>
         </div>
 
@@ -35,10 +37,27 @@
 
             <p *ngIf="product.stock > 0">En stock: {{ product.stock }} unidades</p>
             <p *ngIf="product.stock <= 0" [ngStyle]="{ 'color': 'red' }">No hay stock disponible</p>
+
+            <div class="col-md-8">
+                <a class="btn btn-outline-danger d-none d-md-inline me-1">
+                    <i class="fa fa-trash"></i> Eliminar
+                </a>
+                <a [routerLink]="['/products/edit-product', product._id]" class="btn btn-outline-warning d-none d-md-inline">
+                    <i class="fa fa-pencil"></i> Editar
+                </a>
+            </div>
         </div>
 
         <div class="d-md-none mb-2">
-            <a [routerLink]="['/products']" class="btn btn-outline-secondary d-block d-sm-block"><i class="fa fa-arrow-left"></i> Volver</a>
+            <a [routerLink]="['/products/edit-product', product._id]" class="btn btn-outline-warning d-block d-sm-block mb-2">
+                <i class="fa fa-pencil"></i> Editar
+            </a>
+            <a class="btn btn-outline-danger d-block d-sm-block mb-2">
+                <i class="fa fa-trash"></i> Eliminar
+            </a>
+            <a [routerLink]="['/products']" class="btn btn-outline-secondary d-block d-sm-block">
+                <i class="fa fa-arrow-left"></i> Volver
+            </a>
         </div>
     </div>
 </div>

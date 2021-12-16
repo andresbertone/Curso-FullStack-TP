@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { SupplierModel } from '@app/models/supplier-model';
+
 import { ProductService } from '@app/product-service/product.service';
 import { SupplierService } from '@app/supplier-service/supplier.service';
 
@@ -12,7 +14,7 @@ import { SupplierService } from '@app/supplier-service/supplier.service';
 export class AddProductComponent implements OnInit {
 
   product: any = {};
-  suppliers: any = [];
+  suppliers: SupplierModel[] = [];
 
   constructor( private router: Router, 
                private productService: ProductService,
@@ -47,7 +49,7 @@ export class AddProductComponent implements OnInit {
 
   formIsValid() {
     if ( this.product.name && this.product.image && this.product.price && this.product.stock && this.product.idSupplier ) {
-      if ( this.product.stock > 0 && this.product.price > 0 && ( this.product.quotas > 0 || this.product.quotas === undefined ) ) {
+      if ( this.product.stock >= 0 && this.product.price >= 0 && ( this.product.quotas > 0 || this.product.quotas === undefined ) ) {
         return true;
       } else {
         return false;

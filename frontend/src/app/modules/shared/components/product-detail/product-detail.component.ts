@@ -26,8 +26,8 @@ export class ProductDetailComponent implements OnInit {
     const id = this.activatedRoute.snapshot.paramMap.get('idProduct');
     if (id) {
       this.productService.getProduct(id).subscribe(
-        prod => {
-          this.product = prod;
+        (product) => {
+          this.product = product;
           this.loading = false;
         });
     }

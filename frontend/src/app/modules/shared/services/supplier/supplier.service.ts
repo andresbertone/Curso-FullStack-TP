@@ -17,7 +17,7 @@ export class SupplierService {
 
   getSuppliers(): Observable<SupplierModel[]> {
     return this.http.get<ObjSupplierResponseArray>(`${ this.baseUrl }/suppliers`).pipe(
-      map( res => res.data )
+      map( (res) => res.data )
     );
   }
 }
