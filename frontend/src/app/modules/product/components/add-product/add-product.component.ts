@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { ProductService } from '@app/product-service/product.service';
 import { SupplierService } from '@app/supplier-service/supplier.service';
+
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',

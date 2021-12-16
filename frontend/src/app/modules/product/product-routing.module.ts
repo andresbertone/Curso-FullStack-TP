@@ -5,7 +5,6 @@ import { AddProductComponent } from './components/add-product/add-product.compon
 
 import { AuthGuard } from '@app/guards/auth.guard';
 
-
 const routes: Routes = [
   {
     path: 'add-product',
@@ -18,4 +17,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AddProductRoutingModule { }
+export class ProductRoutingModule { }
