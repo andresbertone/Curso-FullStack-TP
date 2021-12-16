@@ -1,11 +1,5 @@
-<!-- Forma 1 -->
-<!-- <div class="search">
-    <input class="form-control me-2" type="search" placeholder="Buscar producto..." aria-label="Search" #productFinding (keyup.enter)="searchProduct(productFinding.value)">
-    <button class="btn btn-outline-primary" type="button" (click)="searchProduct(productFinding.value)">Buscar</button>
-</div> -->
-
-<!-- Forma 2 -->
 <form class="search" (submit)="searchProduct($event)">
     <input class="form-control me-2" type="search" autocomplete="off" placeholder="Buscar producto..." aria-label="Search" id="productFinding" name="productFinding" [(ngModel)]="productFinding">
-    <button class="btn btn-outline-primary" type="submit">Buscar</button>
+    <button class="btn btn-outline-primary" type="submit" *ngIf="!reset">Buscar</button>
+    <button class="btn btn-outline-danger" type="button" *ngIf="reset" (click)="onReset()">Reset</button>
 </form>

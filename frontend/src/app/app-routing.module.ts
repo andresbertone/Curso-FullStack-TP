@@ -1,19 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AuthGuard } from './shared/guards/auth.guard';
-
-// import { LoginComponent } from './components/login/login.component';
-// import { ContactComponent } from './components/contact/contact.component';
-// import { ProductsComponent } from './components/products/products.component';
-// import { SearcherComponent } from './components/searcher/searcher.component';
-// import { ProductDetailComponent } from './components/product-detail/product-detail.component';
-// import { AddProductComponent } from './components/add-product/add-product.component';
-
-import { ProductsComponent } from './modules/shared/components/products/products.component';
-import { ProductDetailComponent } from './modules/shared/components/product-detail/product-detail.component';
-import { SearcherComponent } from './modules/shared/components/searcher/searcher.component';
-import { ContactComponent } from './modules/shared/components/contact/contact.component';
+import { ProductsComponent } from '@app/components/products/products.component';
+import { ProductDetailComponent } from '@app/components/product-detail/product-detail.component';
+import { ContactComponent } from '@app/components/contact/contact.component';
 
 const routes: Routes = [
   {
@@ -40,10 +30,6 @@ const routes: Routes = [
   {
     path: 'product/:idProduct',
     component: ProductDetailComponent
-  },
-  {
-    path: 'search/:text',
-    component: SearcherComponent,
   },
   {
     path: 'contact',

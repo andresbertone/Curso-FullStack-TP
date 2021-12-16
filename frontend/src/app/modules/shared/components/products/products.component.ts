@@ -12,7 +12,6 @@ export class ProductsComponent implements OnInit {
 
   products: ProductModel[] = [];
   loading: boolean = false;
-  productFinding: string = '';
 
   constructor( private productService: ProductService ) { }
 
@@ -22,11 +21,14 @@ export class ProductsComponent implements OnInit {
   }
 
   loadProducts() {
-    this.productService.getProducts().subscribe(
-      products => {
+    this.productService.getProductsFromLocal().subscribe(
+      (products) => {
         this.products = products;
+        // TODO: Borrar console.log
+        console.log('componente ProductsComponent',this.products);
         this.loading = false;
-      });
+      }
+    );
   };
 
 }

@@ -13,15 +13,25 @@ import { environment } from 'src/environments/environment';
 export class ProductService {
 
   baseUrl: string = environment.baseUrl;
-  initialProducts!: BehaviorSubject<ProductModel[]>; //Linea agregada
-  filteredProducts!: Observable<ProductModel[]> // Linea agregada
+  
+  initialProducts: ProductModel[] = [];
+  products$: BehaviorSubject<ProductModel[]> = new BehaviorSubject(this.initialProducts);
 
-  constructor( private http: HttpClient ) { }
+  constructor( private http: HttpClient ) {
+    this.getProductsFromApi();
+  }
 
-  getProducts(): Observable<ProductModel[]> {
-    return this.http.get<ObjProductResponseArray>(`${ this.baseUrl }/products`).pipe(
-      map( res => res.data )
+  getProductsFromApi() {
+    this.http.get<ObjProductResponseArray>(`${ this.baseUrl }/products`).subscribe(
+      (res) => {
+        this.products$.next(res.data as ProductModel[]);
+        console.log('BehaviorSubject desde API', this.products$.value); // TODO: Borrar console.log
+      }
     );
+  };
+
+  getProductsFromLocal(): Observable<ProductModel[]> {
+    return this.products$.asObservable();
   };
 
   getProduct( idProduct: string ): Observable<ProductModel> {
@@ -29,15 +39,22 @@ export class ProductService {
       map( res => res.data )
     );
   };
-  
-  filterProducts( text: string ): Observable<ProductModel[]> {
-    return this.http.get<ObjProductResponseArray>(`${ this.baseUrl }/products?name=${ text }`).pipe(
-      map( res => res.data )
-    );
+
+  filterProducts( text: string ) {
+    const filteredProducts = this.products$.value.filter( (product) => {
+      return product.name.toLowerCase().includes( text.toLowerCase() );
+    });
+    console.log('Arreglo filtrado', filteredProducts); // TODO: Borrar console.log
+    this.products$.next(filteredProducts);
+    console.log('BehaviorSubject Actualizado',this.products$.value); // TODO: Borrar console.log
   };
 
   addProduct( product: ProductModel ) {
     return this.http.post(`${ this.baseUrl }/products`, product);
-  }
+  };
+
+  resetProducts() {
+    this.getProductsFromApi();
+  };
 
 }
