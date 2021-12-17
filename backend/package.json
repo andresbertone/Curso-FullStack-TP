@@ -1,16 +1,21 @@
 {
-  "name": "backend",
+  "name": "package",
   "version": "1.0.0",
-  "description": "Paquete para el desarrollo del backend del TP del curso fullstack",
+  "description": "Servidor realizado con express",
   "main": "index.js",
   "scripts": {
-    "start": "node src/server/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
-  "author": "Andres Bertone y Germán Tano",
+  "author": "Andrés Bertone y Germán Tano",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "mongodb": "^4.2.1"
+    "mongodb": "^4.2.0",
+    "mongoose": "^6.0.14",
+    "validator": "^13.7.0"
   }
 }
