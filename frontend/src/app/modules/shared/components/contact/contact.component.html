@@ -6,24 +6,24 @@
         <p>Complete el siguiente formulario y nos contactaremos con usted.</p>
     </div>
     
-    <form class="contact-form">
+    <form class="contact-form" (ngSubmit)="send()">
         <div class="form-group">
             <label for="firstName" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Ingrese su nombre" required>
+            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Ingrese su nombre" autocomplete="off" [(ngModel)]="contact.firstName" required>
         </div>
         <div class="form-group">
             <label for="surname" class="form-label">Apellido</label>
-            <input type="text" class="form-control" id="surname" name="surname" placeholder="Ingrese su apellido" required>
+            <input type="text" class="form-control" id="surname" name="surname" placeholder="Ingrese su apellido" autocomplete="off" [(ngModel)]="contact.surname" required>
         </div>
         <div class="form-group">
             <label for="email"  class="form-label">Correo electrónico</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Ingrese su correo electrónico" required>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Ingrese su correo electrónico" autocomplete="off" [(ngModel)]="contact.email" required>
         </div>
         <div class="form-group">
             <label for="message" class="form-label">Mensaje</label>
-            <textarea class="form-control" id="message" name="message" placeholder="Ingrese su mensaje" required></textarea>
+            <textarea class="form-control" id="message" name="message" placeholder="Ingrese su mensaje" autocomplete="off" [(ngModel)]="contact.message" required></textarea>
         </div>
-        <button type="button" class="btn btn-outline-primary">
+        <button type="submit" class="btn btn-outline-primary" [disabled]="!isValid()">
             <i class="fa fa-paper-plane" aria-hidden="true"></i> Enviar
         </button>
     </form>
