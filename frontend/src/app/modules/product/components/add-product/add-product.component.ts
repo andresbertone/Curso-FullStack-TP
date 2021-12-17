@@ -5,6 +5,7 @@ import { SupplierModel } from '@app/models/supplier-model';
 
 import { ProductService } from '@app/product-service/product.service';
 import { SupplierService } from '@app/supplier-service/supplier.service';
+import { SnackbarService } from '@app/snackbar-service/snackbar.service';
 
 @Component({
   selector: 'app-add-product',
@@ -18,7 +19,8 @@ export class AddProductComponent implements OnInit {
 
   constructor( private router: Router, 
                private productService: ProductService,
-               private supplierService: SupplierService ) {
+               private supplierService: SupplierService, 
+               private snackbarService: SnackbarService) {
   }
 
   ngOnInit(): void {
@@ -30,8 +32,8 @@ export class AddProductComponent implements OnInit {
       res => {
         this.suppliers = res;
       }
-    );
-  }
+    )
+  };
 
   cancel() {
     this.router.navigate(['/products']);
@@ -41,6 +43,7 @@ export class AddProductComponent implements OnInit {
     if ( this.formIsValid() ) {
       this.productService.addProduct( this.product ).subscribe(
         () => {
+          this.snackbarService.openSnackbar( "Producto agregado correctamente" );
           this.router.navigate(['/products']);
         }
       )

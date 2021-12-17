@@ -6,6 +6,7 @@ import { SupplierModel } from '@app/models/supplier-model';
 
 import { ProductService } from '@app/product-service/product.service';
 import { SupplierService } from '@app/supplier-service/supplier.service';
+import { SnackbarService } from '@app/snackbar-service/snackbar.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -22,7 +23,8 @@ export class ProductDetailComponent implements OnInit {
   constructor( private activatedRoute: ActivatedRoute, 
                private productService: ProductService,
                private supplierService: SupplierService,
-               private router: Router ) {}
+               private router: Router,
+               private snackbarService: SnackbarService ) {}
               
   ngOnInit(): void {
     this.loading = true;
@@ -54,6 +56,7 @@ export class ProductDetailComponent implements OnInit {
   deleteProduct( productId: string ) {
     this.productService.deleteProduct(productId).subscribe(
       () => {
+        this.snackbarService.openSnackbar( "Producto eliminado con éxito" );
         this.router.navigate(['/products']);
       }
     );

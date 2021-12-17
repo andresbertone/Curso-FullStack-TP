@@ -5,6 +5,7 @@ import { ProductModel } from '@app/models/product-model';
 
 import { ProductService } from '@app/product-service/product.service';
 import { SupplierService } from '@app/supplier-service/supplier.service';
+import { SnackbarService } from '@app/snackbar-service/snackbar.service';
 
 @Component({
   selector: 'app-edit-product',
@@ -19,9 +20,10 @@ export class EditProductComponent implements OnInit {
   loading: boolean = false;
 
   constructor( private router: Router, 
-    private productService: ProductService,
-    private supplierService: SupplierService,
-    private activatedRoute: ActivatedRoute ) {
+               private productService: ProductService,
+               private supplierService: SupplierService,
+               private activatedRoute: ActivatedRoute,
+               private snackbarService: SnackbarService ) {
 }
 
   ngOnInit(): void {
@@ -58,6 +60,7 @@ export class EditProductComponent implements OnInit {
     if ( this.formIsValid() ) {
       this.productService.updateProduct( this.product ).subscribe(
         () => {
+          this.snackbarService.openSnackbar( "Producto actualizado correctamente" );
           this.router.navigate(['/product', this.product._id]);
         }
       )
