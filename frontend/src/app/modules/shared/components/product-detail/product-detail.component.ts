@@ -54,12 +54,18 @@ export class ProductDetailComponent implements OnInit {
   };
 
   deleteProduct( productId: string ) {
-    this.productService.deleteProduct(productId).subscribe(
-      () => {
-        this.snackbarService.openSnackbar( "Producto eliminado con éxito" );
-        this.router.navigate(['/products']);
-      }
-    );
+    const logged = window.localStorage.getItem('logged');
+    if ( logged ) {
+      this.productService.deleteProduct(productId).subscribe(
+        () => {
+          this.snackbarService.openSnackbar( "Producto eliminado con éxito" );
+          this.router.navigate(['/products']);
+        }
+      );
+    } else {
+      this.snackbarService.openSnackbar( "Debe iniciar sesión para eliminar productos" );
+      this.router.navigate(['/login']);
+    }
   };
 
 }
