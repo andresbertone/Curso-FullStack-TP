@@ -16,14 +16,14 @@ export class ContactComponent implements OnInit {
   }
 
   send() {
-    if ( this.isValid() ) {
+    if ( this.isValid() ) { // Si todos los campos están completados
       this.snackbarService.openSnackbar("Mensaje enviado", "Ok");
       this.contact = {};
     }
   };
 
-  isValid() {
-    if ( this.contact.firstName && this.contact.surname && this.contact.email && this.contact.message ) {
+  isValid() { 
+    if ( this.contact.firstName && this.contact.surname && this.contact.email && this.contact.message ) { // Si todos los campos están completados
       return true;
     } else {
       return false;

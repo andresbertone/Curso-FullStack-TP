@@ -47,9 +47,9 @@ export class NavComponent implements OnInit {
   };
 
   addProduct() {
-    if ( this.loggedIn ) {
+    if ( this.loggedIn ) { // Si está logueado, y se presiona la opción "Nuevo producto"
       this.router.navigate(['/products/add-product']);
-    } else {
+    } else { // Si no está logueado, se muestra un mensaje y se redirecciona al login
       this.snackbarService.openSnackbar( "Debe iniciar sesión para agregar un producto" );
       this.router.navigate(['/login']);
     }

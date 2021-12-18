@@ -33,7 +33,7 @@ export class ProductDetailComponent implements OnInit {
     this.loadProduct();
   }
 
-  loadProduct() {
+  loadProduct() { // Carga el producto seleccionado
     const paramProductId = this.activatedRoute.snapshot.paramMap.get('idProduct');
     if ( paramProductId ) {
       this.productService.getProduct(paramProductId).subscribe(
@@ -45,7 +45,7 @@ export class ProductDetailComponent implements OnInit {
     }
   };
 
-  loadSupplier() {
+  loadSupplier() { // Carga el proveedor del producto seleccionado
     if ( this.product.idSupplier ) {
       this.supplierService.getSupplier(this.product.idSupplier).subscribe(
         (supplier) => {
@@ -55,26 +55,26 @@ export class ProductDetailComponent implements OnInit {
     }
   };
 
-  deleteProduct( productId: string ) {
+  deleteProduct( productId: string ) { // Elimina el producto seleccionado
     const isLogged = this.loginService.isLogged();
-    if ( isLogged ) {
+    if ( isLogged ) { // Si está logueado, elimina el producto y muestra mensaje de éxito
       this.productService.deleteProduct(productId).subscribe(
         () => {
           this.snackbarService.openSnackbar( "Producto eliminado con éxito" );
           this.router.navigate(['/products']);
         }
       );
-    } else {
+    } else { // Si no está logueado, muestra mensaje y redirecciona al login
       this.snackbarService.openSnackbar( "Debe iniciar sesión para eliminar un producto" );
       this.router.navigate(['/login']);
     }
   };
 
-  updateProduct( productId: string ) {
+  updateProduct( productId: string ) { // Actualiza el producto seleccionado
     const isLogged = this.loginService.isLogged();
-    if ( isLogged ) {
+    if ( isLogged ) { // Si está logueado, actualiza el producto y muestra mensaje de éxito
       this.router.navigate(['/products/edit-product', productId]);
-    } else {
+    } else { // Si no está logueado, muestra mensaje y redirecciona al login
       this.snackbarService.openSnackbar( "Debe iniciar sesión para editar un producto" );
       this.router.navigate(['/login']);
     }

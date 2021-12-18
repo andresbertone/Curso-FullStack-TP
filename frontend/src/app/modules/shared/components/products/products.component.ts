@@ -4,6 +4,7 @@ import { ProductModel } from '@app/models/product-model';
 import { ProductService } from '@app/product-service/product.service';
 
 import { Subscription } from 'rxjs';
+
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',

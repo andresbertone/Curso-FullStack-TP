@@ -18,14 +18,14 @@ export class LoginService {
 
   constructor() { }
 
-  login( user: UserModel ) {
-    let userFound = this.usersData.find( (userData) => { // Se busca el usuario en el array de usuarios
+  login( user: UserModel ) { // Se comprueba si el usuario y la contraseña son correctos.
+    let userFound = this.usersData.find( (userData) => { // Se busca que el usuario y contraseña ingresados coincida con alguno guardado en el array de usuarios
       return userData.username === user.username && userData.password === user.password;
     });
     if ( userFound ) { // Si se encontró el usuario
       localStorage.setItem('logged', 'true'); // Se guarda en el localStorage la variable "logged" con el valor "true" para simular un login.
       return true;
-    } else {
+    } else { // Si no se encontró el usuario
       return false;
     }
   };

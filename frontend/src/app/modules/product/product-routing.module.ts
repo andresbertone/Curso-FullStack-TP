@@ -10,12 +10,12 @@ const routes: Routes = [
   {
     path: 'add-product',
     component: AddProductComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard] // Se aplica el guard cuando quiere entrar a la ruta
   },
   {
     path: 'edit-product/:id',
     component: EditProductComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard] // Se aplica el guard cuando quiere entrar a la ruta
   }
 ];
 

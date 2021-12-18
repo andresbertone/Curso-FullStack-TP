@@ -21,7 +21,7 @@ export class SearchFieldComponent implements OnInit {
     this.router.events.subscribe(
       (event) => {
         if ( event instanceof NavigationEnd ) {
-          this.reset = false; // Cuando se cambia de ruta, el boton de reset no está activo
+          this.reset = false; // Cuando se cambia de ruta, el botón de "reset" se desactiva y se muestra el botón "buscar"
           this.url = event.url;
         }
     })              
@@ -30,12 +30,12 @@ export class SearchFieldComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  searchProduct( $event: any ) {
+  searchProduct( $event: any ) { // Se busca el producto que coincida con la descripción parcial que se ingresa en el campo de texto
     $event.preventDefault();  // Evita que se envíe el formulario
     if ( this.productFinding.length > 0 ) { // Para que no haga una búsqueda con un string vacío
       if ( this.url === '/products' ) { // Para evitar que haga la búsqueda desde otra url distinta a /products
         this.productService.filterProducts( this.productFinding.trim() ); // Se filtra el contenido
-        this.reset = true;
+        this.reset = true; // Se activa el botón de "reset"
       } 
       this.productFinding = '';
     };

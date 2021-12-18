@@ -27,7 +27,7 @@ export class AddProductComponent implements OnInit {
     this.loadSuppliers();
   }
 
-  loadSuppliers() {
+  loadSuppliers() { // Carga los proveedores en el select
     this.supplierService.getSuppliers().subscribe(
       res => {
         this.suppliers = res;
@@ -40,7 +40,7 @@ export class AddProductComponent implements OnInit {
   };
 
   save() {
-    if ( this.formIsValid() ) {
+    if ( this.formIsValid() ) { // Si el formulario es válido
       this.productService.addProduct( this.product ).subscribe(
         () => {
           this.snackbarService.openSnackbar( "Producto agregado correctamente" );
@@ -50,9 +50,9 @@ export class AddProductComponent implements OnInit {
     }
   };
 
-  formIsValid() {
-    if ( this.product.name && this.product.image && this.product.price && this.product.stock && this.product.idSupplier ) {
-      if ( this.product.stock >= 0 && this.product.price >= 0 && ( this.product.quotas > 0 || this.product.quotas === undefined ) ) {
+  formIsValid() { 
+    if ( this.product.name && this.product.image && this.product.price && this.product.stock && this.product.idSupplier ) { // Valida que los campos obligatorios del formulario estén completos
+      if ( this.product.stock >= 0 && this.product.price >= 0 && ( this.product.quotas > 0 || this.product.quotas === undefined ) ) { // Valida que los campos numericos del formulario sean positivos
         return true;
       } else {
         return false;

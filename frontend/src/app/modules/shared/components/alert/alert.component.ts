@@ -15,7 +15,7 @@ export class AlertComponent implements OnInit {
   }
 
   deleteProduct() {
-    this.onDelete.emit();
+    this.onDelete.emit(); // Emite el evento onDelete que será escuchado por el componente padre
   };
 
 }
