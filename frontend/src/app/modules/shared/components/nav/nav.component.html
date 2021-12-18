@@ -19,7 +19,7 @@
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item menu" [routerLink]="['products']">Ver productos</a></li>
-                    <li><a class="dropdown-item menu" [routerLink]="['products/add-product']">Nuevo producto</a></li>
+                    <li><a class="dropdown-item menu" (click)="addProduct()">Nuevo producto</a></li>
                 </ul>
             </div>
             

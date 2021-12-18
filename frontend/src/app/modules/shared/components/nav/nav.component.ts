@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 
 import { LoginService } from '@app/login-service/login.service';
+import { SnackbarService } from '@app/snackbar-service/snackbar.service';
 
 @Component({
   selector: 'app-nav',
@@ -12,7 +13,9 @@ export class NavComponent implements OnInit {
 
   loggedIn: boolean = false;
 
-  constructor( private router: Router, private loginService: LoginService ) { 
+  constructor( private router: Router,
+               private loginService: LoginService,
+               private snackbarService: SnackbarService ) { 
     
     this.router.events.subscribe(
       (event) => {
@@ -41,6 +44,15 @@ export class NavComponent implements OnInit {
     };
     this.loggedIn = false;
     this.router.navigate( ["/login"] );
+  };
+
+  addProduct() {
+    if ( this.loggedIn ) {
+      this.router.navigate(['/products/add-product']);
+    } else {
+      this.snackbarService.openSnackbar( "Debe iniciar sesión para agregar un producto" );
+      this.router.navigate(['/login']);
+    }
   };
 
 }

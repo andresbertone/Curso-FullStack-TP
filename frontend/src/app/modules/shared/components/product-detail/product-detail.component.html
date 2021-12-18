@@ -44,14 +44,14 @@
                 <a class="btn btn-outline-danger d-none d-md-inline me-1" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <i class="fa fa-trash"></i> Eliminar
                 </a>
-                <a [routerLink]="['/products/edit-product', product._id]" class="btn btn-outline-warning d-none d-md-inline">
+                <a (click)="updateProduct( product._id )" class="btn btn-outline-warning d-none d-md-inline">
                     <i class="fa fa-pencil"></i> Editar
                 </a>
             </div>
         </div>
 
         <div class="d-md-none mb-2">
-            <a [routerLink]="['/products/edit-product', product._id]" class="btn btn-outline-warning d-block d-sm-block mb-2">
+            <a (click)="updateProduct( product._id )" class="btn btn-outline-warning d-block d-sm-block mb-2">
                 <i class="fa fa-pencil"></i> Editar
             </a>
             <a class="btn btn-outline-danger d-block d-sm-block mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal">

@@ -7,8 +7,8 @@ export class SnackbarService {
 
   snackBarConfig: MatSnackBarConfig = {
     horizontalPosition: 'center',
-    verticalPosition: 'top',
-    duration: 5000
+    verticalPosition: 'bottom',
+    duration: 3500
   };
 
   constructor( private snackBar: MatSnackBar ) { }
