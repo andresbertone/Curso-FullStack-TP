@@ -34,6 +34,13 @@
     color: white;
 }
 
+.login, .logout {
+    display: block;
+    padding: 0.5rem;
+    text-decoration: none;
+    border: 1px;
+}
+
 @media screen and (min-width: 992px) {
     .navbar-collapse {
         flex: 0;

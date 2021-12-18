@@ -1,1 +1,33 @@
-<p>Se debería ver este login</p>
+<div class="modal-dialog text-center">
+    <div class="col-md-8 main-section">
+        <div class="modal-content">
+
+            <div class="col-12 user-img">
+                <img src="../../../../../assets/images/user-login.png" alt="Imagen por defecto"/>
+            </div>
+
+            <form class="col-12" (ngSubmit)="login()">
+                <div class="input-group flex-nowrap" id="user-group">
+                    <span class="input-group-text">
+                        <i class="fa fa-user"></i>
+                    </span>
+                    <input type="text" class="form-control" placeholder="Nombre de usuario" name="username" autocomplete="off" [(ngModel)]="user.username"/>
+                </div>
+                <div class="input-group flex-nowrap mt-3" id="contrasena-group">
+                    <span class="input-group-text">
+                        <i class="fa fa-lock"></i>
+                    </span>
+                    <input type="password" class="form-control" placeholder="Contraseña" name="password" autocomplete="off" [(ngModel)]="user.password"/>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">
+                    <i class="fa fa-sign-in"></i> Ingresar
+                </button>
+            </form>
+
+            <div *ngIf="!userValid" class="alert alert-danger" role="alert">
+                Usuario o contraseña inválidos.
+            </div>
+
+        </div>
+    </div>
+</div>

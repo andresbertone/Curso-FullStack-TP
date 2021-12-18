@@ -14,6 +14,8 @@ import { AlertComponent } from './components/alert/alert.component';
 import { ProductService } from '@app/product-service/product.service';
 import { SupplierService } from '@app/supplier-service/supplier.service';
 import { SnackbarService } from '@app/snackbar-service/snackbar.service';
+import { LoginService } from '@app/login-service/login.service';
+
 @NgModule({
   declarations: [
     ProductCardComponent,
@@ -41,7 +43,8 @@ import { SnackbarService } from '@app/snackbar-service/snackbar.service';
   providers: [
     ProductService, 
     SupplierService,
-    SnackbarService
+    SnackbarService,
+    LoginService
   ]
 })
 export class SharedModule { }

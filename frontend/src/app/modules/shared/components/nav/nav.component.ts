@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
+
+import { LoginService } from '@app/login-service/login.service';
 
 @Component({
   selector: 'app-nav',
@@ -8,21 +10,37 @@ import { Router } from '@angular/router';
 })
 export class NavComponent implements OnInit {
 
-  logged: boolean = false;
+  loggedIn: boolean = false;
 
-  constructor( private router: Router ) { }
+  constructor( private router: Router, private loginService: LoginService ) { 
+    
+    this.router.events.subscribe(
+      (event) => {
+        if ( event instanceof NavigationEnd ) {
+          this.verifyLogin(); // Verifico si el usuario está logueado en cada ruta donde se mueva. 
+        }
+    });
 
-  ngOnInit(): void {
   }
 
-  onLogin() {
-    this.logged = true;
-    window.localStorage.setItem('logged', 'true');
+  ngOnInit(): void {
+    this.verifyLogin();
+  }
+
+  verifyLogin() {
+    this.loggedIn = this.loginService.isLogged(); // Verifico si el usuario está logueado.
   };
 
-  onLogout() {
-    this.logged = false;
-    window.localStorage.removeItem('logged');
+  login() {
+    if ( !this.loggedIn ) this.router.navigate( ["/login"] )  // Si no está logueado, se hace una redirección a la página de login.
+  };
+
+  logout() {
+    if ( this.loggedIn ) { // Si está logueado, y se presiona el botón "cerrar sesión"
+      this.loginService.logout();
+    };
+    this.loggedIn = false;
+    this.router.navigate( ["/login"] );
   };
 
 }
