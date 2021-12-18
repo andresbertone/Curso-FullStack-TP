@@ -16,7 +16,7 @@
 </div>
 
 
-<div class="alert alert-primary text-center mt-5" *ngIf="loading">
+<div class="alert alert-primary text-center mt-5" *ngIf="loading && products.length === 0">
     <p class="fs-3 fw-bold">Cargando</p>
     <div class="spinner-border" role="status">
         <span class="visually-hidden">Loading...</span>

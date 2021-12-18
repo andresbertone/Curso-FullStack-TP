@@ -12,6 +12,7 @@ import { Subscription } from 'rxjs';
 export class ProductsComponent implements OnInit, OnDestroy {
 
   products: ProductModel[] = [];
+
   loading: boolean = false;
 
   subscription: Subscription = new Subscription();
@@ -24,14 +25,16 @@ export class ProductsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.subscription.unsubscribe(); // Cuando se destruye el componente, se cancela la subscripción para que no quede escuchando los cambios
   }
 
-  loadProducts() {
+  loadProducts() { // Se cargan todos los productos
     this.productService.getProducts().subscribe(
       (products: ProductModel[]) => {
         this.products = products;
-        this.loading = false;
+        if ( this.products.length > 0 ) {
+          this.loading = false;
+        }
       }
     );
   };

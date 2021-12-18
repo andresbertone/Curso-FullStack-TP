@@ -17,9 +17,11 @@ export class SearchFieldComponent implements OnInit {
 
   constructor( private productService: ProductService,
                private router: Router ) { 
+
     this.router.events.subscribe(
       (event) => {
         if ( event instanceof NavigationEnd ) {
+          this.reset = false; // Cuando se cambia de ruta, el boton de reset no está activo
           this.url = event.url;
         }
     })              
@@ -30,9 +32,9 @@ export class SearchFieldComponent implements OnInit {
 
   searchProduct( $event: any ) {
     $event.preventDefault();  // Evita que se envíe el formulario
-    if ( this.productFinding.length > 0 ) {
-      if ( this.url === '/products' ) {
-        this.productService.filterProducts( this.productFinding.trim() );
+    if ( this.productFinding.length > 0 ) { // Para que no haga una búsqueda con un string vacío
+      if ( this.url === '/products' ) { // Para evitar que haga la búsqueda desde otra url distinta a /products
+        this.productService.filterProducts( this.productFinding.trim() ); // Se filtra el contenido
         this.reset = true;
       } 
       this.productFinding = '';
@@ -40,7 +42,7 @@ export class SearchFieldComponent implements OnInit {
   };
 
   onReset() {
-    this.productService.getProducts();
+    this.productService.getProducts(); // Se resetea el contenido y muestra todos los productos nuevamente
     this.reset = false;
   };
 
