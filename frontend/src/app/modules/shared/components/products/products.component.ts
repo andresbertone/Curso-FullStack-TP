@@ -1,17 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { ProductModel } from '@app/models/product-model';
 import { ProductService } from '@app/product-service/product.service';
 
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
-export class ProductsComponent implements OnInit {
+export class ProductsComponent implements OnInit, OnDestroy {
 
   products: ProductModel[] = [];
   loading: boolean = false;
+
+  subscription: Subscription = new Subscription();
 
   constructor( private productService: ProductService ) { }
 
@@ -20,12 +23,14 @@ export class ProductsComponent implements OnInit {
     this.loadProducts();
   }
 
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
   loadProducts() {
-    this.productService.getProductsFromLocal().subscribe(
-      (products) => {
+    this.productService.getProducts().subscribe(
+      (products: ProductModel[]) => {
         this.products = products;
-        // TODO: Borrar console.log
-        console.log('componente ProductsComponent',this.products);
         this.loading = false;
       }
     );

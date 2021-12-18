@@ -18,19 +18,15 @@ export class ProductService {
   products$: BehaviorSubject<ProductModel[]> = new BehaviorSubject(this.initialProducts);
 
   constructor( private http: HttpClient ) {
-    this.getProductsFromApi();
+    this.getProducts();
   }
 
-  getProductsFromApi() {
+  getProducts(): Observable<ProductModel[]> {
     this.http.get<ObjProductResponseArray>(`${ this.baseUrl }/products`).subscribe(
       (res) => {
         this.products$.next(res.data as ProductModel[]);
-        console.log('BehaviorSubject desde API', this.products$.value); // TODO: Borrar console.log
       }
     );
-  };
-
-  getProductsFromLocal(): Observable<ProductModel[]> {
     return this.products$.asObservable();
   };
 
@@ -44,19 +40,13 @@ export class ProductService {
     const filteredProducts = this.products$.value.filter( (product) => {
       return product.name.toLowerCase().includes( text.toLowerCase() );
     });
-    console.log('Arreglo filtrado', filteredProducts); // TODO: Borrar console.log
     this.products$.next(filteredProducts);
-    console.log('BehaviorSubject Actualizado',this.products$.value); // TODO: Borrar console.log
   };
 
   addProduct( product: ProductModel ): Observable<ProductModel> {
     return this.http.post<ObjProductResponse>(`${ this.baseUrl }/products`, product).pipe(
       map( (res) => res.data)
     );
-  };
-
-  resetProducts() {
-    this.getProductsFromApi();
   };
 
   updateProduct( product: ProductModel ): Observable<ProductModel> {
