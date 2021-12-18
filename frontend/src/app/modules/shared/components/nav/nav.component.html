@@ -27,8 +27,8 @@
 
             <app-search-field></app-search-field>
 
-            <button class="list-group-item-action login me-2" (click)="login()" *ngIf="!loggedIn">Iniciar sesión</button>
-            <button class="list-group-item-action logout me-2" (click)="logout()" *ngIf="loggedIn">Salir</button>
+            <button class="btn btn-outline-success login-button" (click)="login()" *ngIf="!loggedIn">Iniciar sesión</button>
+            <button class="btn btn-outline-danger login-button" (click)="logout()" *ngIf="loggedIn">Salir</button>
 
         </div>
         

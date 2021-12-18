@@ -34,11 +34,8 @@
     color: white;
 }
 
-.login, .logout {
-    display: block;
-    padding: 0.5rem;
-    text-decoration: none;
-    border: 1px;
+.login-button {
+    margin: 0.5rem;
 }
 
 @media screen and (min-width: 992px) {
