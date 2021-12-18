@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 
 import { ProductService } from '@app/product-service/product.service';
 
@@ -12,7 +13,17 @@ export class SearchFieldComponent implements OnInit {
   productFinding: string = '';
   reset: boolean = false;
 
-  constructor( private productService: ProductService ) { }
+  url: string = '';
+
+  constructor( private productService: ProductService,
+               private router: Router ) { 
+    this.router.events.subscribe(
+      (event) => {
+        if ( event instanceof NavigationEnd ) {
+          this.url = event.url;
+        }
+    })              
+  }
 
   ngOnInit(): void {
   }
@@ -20,14 +31,16 @@ export class SearchFieldComponent implements OnInit {
   searchProduct( $event: any ) {
     $event.preventDefault();  // Evita que se envíe el formulario
     if ( this.productFinding.length > 0 ) {
-      this.productService.filterProducts( this.productFinding.trim() );
+      if ( this.url === '/products' ) {
+        this.productService.filterProducts( this.productFinding.trim() );
+        this.reset = true;
+      } 
       this.productFinding = '';
-      this.reset = true;
     };
   };
 
   onReset() {
-    this.productService.resetProducts();
+    this.productService.getProducts();
     this.reset = false;
   };
 
