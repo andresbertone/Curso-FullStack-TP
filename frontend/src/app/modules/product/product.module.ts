@@ -18,10 +18,6 @@ import { ProductService } from 'src/app/shared/services/product/product.service'
     ProductRoutingModule,
     FormsModule
   ],
-  exports: [
-    AddProductComponent,
-    EditProductComponent
-  ],
   providers: [ProductService]
 })
 export class ProductModule { }

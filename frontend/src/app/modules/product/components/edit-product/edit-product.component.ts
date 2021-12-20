@@ -69,7 +69,7 @@ export class EditProductComponent implements OnInit {
 
   formIsValid() {
     if ( this.product.name && this.product.image && this.product.price && this.product.stock && this.product.idSupplier ) { // Valida que los campos obligatorios del formulario estén completos
-      if ( this.product.stock > 0 && this.product.price > 0 && ( this.product.quotas > 0 || this.product.quotas === undefined ) ) { // Valida que los campos numericos del formulario sean positivos
+      if ( this.product.stock > 0 && this.product.price > 0 && ( this.product.quotas >= 1 || this.product.quotas === undefined ) ) { // Valida que los campos numericos del formulario sean positivos
         return true;
       } else {
         return false;

@@ -32,7 +32,7 @@
             <label for="inputProductPrice" class="form-label">Precio</label>
             <div class="input-group flex-nowrap">
                 <span class="input-group-text">$</span>
-                <input type="number" min="0" class="form-control" id="inputProductPrice" name="inputProductPrice" placeholder="Precio del producto" [(ngModel)]="product.price" required>
+                <input type="number" min="0" step="0.1" class="form-control" id="inputProductPrice" name="inputProductPrice" placeholder="Precio del producto" [(ngModel)]="product.price" required>
             </div>
         </div>
         
