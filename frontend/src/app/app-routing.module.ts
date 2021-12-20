@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { ProductsComponent } from '@app/components/products/products.component';
 import { ProductDetailComponent } from '@app/components/product-detail/product-detail.component';
-import { ContactComponent } from '@app/components/contact/contact.component';
 
 const routes: Routes = [
   {
@@ -33,7 +32,7 @@ const routes: Routes = [
   },
   {
     path: 'contact',
-    component: ContactComponent
+    loadChildren: () => import('./modules/contact/contact.module').then( (module) => module.ContactModule )
   },
   {
     path: '**',

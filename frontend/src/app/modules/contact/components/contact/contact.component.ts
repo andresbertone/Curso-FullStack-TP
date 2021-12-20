@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { SnackbarService } from '@app/snackbar-service/snackbar.service';
+
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -16,7 +17,7 @@ export class ContactComponent implements OnInit {
   }
 
   send() {
-    if ( this.isValid() ) { // Si todos los campos están completados
+    if ( this.isValid() ) { // Si el formulario es válido
       this.snackbarService.openSnackbar("Mensaje enviado", "Ok");
       this.contact = {};
     }

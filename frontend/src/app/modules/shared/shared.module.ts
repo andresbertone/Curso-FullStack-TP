@@ -7,7 +7,6 @@ import { SearchFieldComponent } from './components/search-field/search-field.com
 import { ProductsComponent } from './components/products/products.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { NavComponent } from './components/nav/nav.component';
-import { ContactComponent } from './components/contact/contact.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { AlertComponent } from './components/alert/alert.component';
 
@@ -19,7 +18,6 @@ import { LoginService } from '@app/login-service/login.service';
 @NgModule({
   declarations: [
     ProductCardComponent,
-    ContactComponent,
     NavComponent,
     ProductDetailComponent,
     ProductsComponent,
@@ -33,7 +31,6 @@ import { LoginService } from '@app/login-service/login.service';
   ],
   exports: [
     ProductCardComponent,
-    ContactComponent,
     NavComponent,
     ProductDetailComponent,
     ProductsComponent,
