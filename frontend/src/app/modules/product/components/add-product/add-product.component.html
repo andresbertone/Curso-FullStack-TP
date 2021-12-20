@@ -3,12 +3,12 @@
 <form (ngSubmit)="save()">
     <div class="row g-3 justify-content-md-center mt-2 mx-2">
         <div class="col-md-5">
-          <label for="inputProductName" class="form-label">Nombre del producto</label>
+          <label for="inputProductName" class="form-label">Nombre del producto*</label>
           <input type="text" class="form-control" id="inputProductName" name="inputProductName" placeholder="Escriba el nombre del producto" [(ngModel)]="product.name" autocomplete="off" required>
         </div>
     
         <div class="col-md-4">
-            <label for="inputSupplier" class="form-label">Proveedor</label>
+            <label for="inputSupplier" class="form-label">Proveedor*</label>
             <select id="inputSupplier" name="inputSupplier" class="form-select" [(ngModel)]="product.idSupplier" required>
               <option *ngFor="let supplier of suppliers" [value]="supplier._id">{{ supplier.companyName }}</option>
             </select>
@@ -18,34 +18,34 @@
     <div class="row g-3 justify-content-md-center mt-2 mx-2">
         <div class="col-md-9">
             <label for="inputProductDescription" class="form-label">Descripción del producto</label>
-            <textarea class="form-control" id="inputProductDescription" name="inputProductDescription" placeholder="Escriba una descripción del producto" rows="2" [(ngModel)]="product.description"></textarea>
+            <textarea class="form-control" id="inputProductDescription" name="inputProductDescription" placeholder="Escriba una descripción del producto" rows="2" [(ngModel)]="product.description" autocomplete="off"></textarea>
         </div>
     </div>
 
     <div class="row g-3 justify-content-md-center mt-2 mx-2">
         <div class="col-md-3">
-          <label for="inputProductAmount" class="form-label">Cantidad</label>
-          <input type="number" min="0" class="form-control" id="inputProductAmount" name="inputProductAmount" placeholder="Ingrese cantidad de producto" [(ngModel)]="product.stock" required>
+          <label for="inputProductAmount" class="form-label">Cantidad*</label>
+          <input type="number" min="0" class="form-control" id="inputProductAmount" name="inputProductAmount" placeholder="Ingrese cantidad de producto" [(ngModel)]="product.stock" autocomplete="off" required>
         </div>
         
         <div class="col-md-3">
-            <label for="inputProductPrice" class="form-label">Precio</label>
+            <label for="inputProductPrice" class="form-label">Precio*</label>
             <div class="input-group flex-nowrap">
                 <span class="input-group-text">$</span>
-                <input type="number" min="0" step="0.1" class="form-control" id="inputProductPrice" name="inputProductPrice" placeholder="Precio del producto" [(ngModel)]="product.price" required>
+                <input type="number" min="0" step="0.1" class="form-control" id="inputProductPrice" name="inputProductPrice" placeholder="Precio del producto" [(ngModel)]="product.price" autocomplete="off" required>
             </div>
         </div>
         
         <div class="col-md-3">
           <label for="inputProductQuota" class="form-label">Cuotas</label>
-          <input type="number" min="1" class="form-control" id="inputProductQuota" name="inputProductQuota" placeholder="Ingrese las cuotas disponibles" [(ngModel)]="product.quotas">
+          <input type="number" min="1" class="form-control" id="inputProductQuota" name="inputProductQuota" placeholder="Ingrese las cuotas disponibles" [(ngModel)]="product.quotas" autocomplete="off">
         </div>
     </div>
 
     <div class="row g-3 justify-content-md-center mt-2 mx-2">
         <div class="col-md-9">
-            <label for="inputProductImage" class="form-label">Imagen del producto</label>
-            <input class="form-control" type="text" id="inputProductImage" name="inputProductImage" placeholder="Ingrese el link de la imagen" autocomplete="off" [(ngModel)]="product.image" required>
+            <label for="inputProductImage" class="form-label">Imagen del producto*</label>
+            <input class="form-control" type="text" id="inputProductImage" name="inputProductImage" placeholder="Ingrese el link de la imagen" autocomplete="off" [(ngModel)]="product.image" autocomplete="off" required>
         </div>
     </div>
     

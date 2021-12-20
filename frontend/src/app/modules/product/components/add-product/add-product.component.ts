@@ -25,6 +25,7 @@ export class AddProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadSuppliers();
+    this.product.quotas = 1;
   }
 
   loadSuppliers() { // Carga los proveedores en el select
@@ -47,12 +48,14 @@ export class AddProductComponent implements OnInit {
           this.router.navigate(['/products']);
         }
       )
+    } else {
+      this.snackbarService.openSnackbar( "Complete todos los campos obligatorios (*)" );
     }
   };
 
   formIsValid() { 
     if ( this.product.name && this.product.image && this.product.price && this.product.stock && this.product.idSupplier ) { // Valida que los campos obligatorios del formulario estén completos
-      if ( this.product.stock >= 0 && this.product.price >= 0 && ( this.product.quotas >= 1 || this.product.quotas === undefined ) ) { // Valida que los campos numericos del formulario sean positivos
+      if ( this.product.stock >= 0 && this.product.price >= 0 && ( this.product.quotas >= 1 || this.product.quotas === undefined ) ) { // Valida que los campos numéricos del formulario sean números positivos
         return true;
       } else {
         return false;

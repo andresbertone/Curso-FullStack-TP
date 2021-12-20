@@ -64,6 +64,8 @@ export class EditProductComponent implements OnInit {
           this.router.navigate(['/product', this.product._id]);
         }
       )
+    } else {
+      this.snackbarService.openSnackbar( "Complete todos los campos obligatorios (*)" );
     }
   };
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { LoginService } from '@app/login-service/login.service';
@@ -13,10 +13,16 @@ export class LoginComponent implements OnInit {
   user: any = {};
   userValid: boolean = true;
 
+  @ViewChild('focus') focus: any;
+
   constructor( private loginService: LoginService,
                private router: Router ) { }
 
   ngOnInit(): void {
+  }
+
+  ngAfterViewInit() {
+    this.focus.nativeElement.focus();
   }
 
   login() {
@@ -25,6 +31,9 @@ export class LoginComponent implements OnInit {
       this.router.navigate( ["/home"] );
     } else {
       this.userValid = false; // Si el usuario no es válido, muestra mensaje de error en el formulario
+      this.user.username = "";
+      this.user.password = "";
+      this.focus.nativeElement.focus();
     };
   };
 

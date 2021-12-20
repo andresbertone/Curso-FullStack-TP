@@ -17,13 +17,15 @@ export class ContactComponent implements OnInit {
   }
 
   send() {
-    if ( this.isValid() ) { // Si el formulario es válido
+    if ( this.formIsValid() ) { // Si el formulario es válido
       this.snackbarService.openSnackbar("Mensaje enviado", "Ok");
       this.contact = {};
+    } else {
+      this.snackbarService.openSnackbar("Complete todos los campos obligatorios (*)");
     }
   };
 
-  isValid() { 
+  formIsValid() { 
     if ( this.contact.firstName && this.contact.surname && this.contact.email && this.contact.message ) { // Si todos los campos están completados
       return true;
     } else {

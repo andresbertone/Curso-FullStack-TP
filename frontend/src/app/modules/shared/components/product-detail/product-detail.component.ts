@@ -65,8 +65,8 @@ export class ProductDetailComponent implements OnInit {
         }
       );
     } else { // Si no está logueado, muestra mensaje y redirecciona al login
-      this.snackbarService.openSnackbar( "Debe iniciar sesión para eliminar un producto" );
       this.router.navigate(['/login']);
+      this.snackbarService.openSnackbar( "Debe iniciar sesión para eliminar un producto" );
     }
   };
 
@@ -75,8 +75,8 @@ export class ProductDetailComponent implements OnInit {
     if ( isLogged ) { // Si está logueado, actualiza el producto y muestra mensaje de éxito
       this.router.navigate(['/products/edit-product', productId]);
     } else { // Si no está logueado, muestra mensaje y redirecciona al login
-      this.snackbarService.openSnackbar( "Debe iniciar sesión para editar un producto" );
       this.router.navigate(['/login']);
+      this.snackbarService.openSnackbar( "Debe iniciar sesión para editar un producto" );
     }
   };
 
