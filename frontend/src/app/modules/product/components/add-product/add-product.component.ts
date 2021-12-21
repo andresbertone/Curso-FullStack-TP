@@ -6,6 +6,7 @@ import { SupplierModel } from '@app/models/supplier-model';
 import { ProductService } from '@app/product-service/product.service';
 import { SupplierService } from '@app/supplier-service/supplier.service';
 import { SnackbarService } from '@app/snackbar-service/snackbar.service';
+import { ProductModel } from '@app/models/product-model';
 
 @Component({
   selector: 'app-add-product',
@@ -14,7 +15,7 @@ import { SnackbarService } from '@app/snackbar-service/snackbar.service';
 })
 export class AddProductComponent implements OnInit {
 
-  product: any = {};
+  product: ProductModel = {} as ProductModel;
   suppliers: SupplierModel[] = [];
 
   constructor( private router: Router, 
