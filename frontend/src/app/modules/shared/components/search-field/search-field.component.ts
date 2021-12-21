@@ -36,14 +36,14 @@ export class SearchFieldComponent implements OnInit {
       if ( this.url === '/products' ) { // Para evitar que haga la búsqueda desde otra url distinta a /products
         this.productService.filterProducts( this.productFinding.trim() ); // Se filtra el contenido
         this.reset = true; // Se activa el botón de "reset"
-      } 
-      this.productFinding = '';
+      }
     };
   };
 
   onReset() {
     this.productService.getProducts(); // Se resetea el contenido y muestra todos los productos nuevamente
     this.reset = false;
+    this.productFinding = '';
   };
 
 }
