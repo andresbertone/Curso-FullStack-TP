@@ -6,6 +6,7 @@ import { ContactRoutingModule } from './contact-routing.module';
 import { ContactComponent } from './components/contact/contact.component';
 
 import { SnackbarService } from '@app/snackbar-service/snackbar.service';
+import { ContactService } from '@app/contact-service/contact.service';
 
 
 @NgModule({
@@ -17,6 +18,6 @@ import { SnackbarService } from '@app/snackbar-service/snackbar.service';
     ContactRoutingModule,
     FormsModule
   ],
-  providers: [SnackbarService]
+  providers: [SnackbarService, ContactService]
 })
 export class ContactModule { }

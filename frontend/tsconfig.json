@@ -29,6 +29,7 @@
       "@app/supplier-service/*": ["src/app/shared/services/supplier/*"],
       "@app/snackbar-service/*": ["src/app/shared/services/snackbar/*"],
       "@app/login-service/*": ["src/app/shared/services/login/*"],
+      "@app/contact-service/*": ["src/app/shared/services/contact/*"],
       "@app/components/*": ["src/app/modules/shared/components/*"]
     }
   },

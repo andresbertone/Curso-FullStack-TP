@@ -6,18 +6,18 @@
         <p>Complete el siguiente formulario y nos contactaremos con usted.</p>
     </div>
     
-    <form class="contact-form" (ngSubmit)="send()">
+    <form (ngSubmit)="send()" class="contact-form">
         <div class="form-group">
             <label for="firstName" class="form-label">Nombre*</label>
             <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Ingrese su nombre" autocomplete="off" [(ngModel)]="contact.firstName" required>
         </div>
         <div class="form-group">
-            <label for="surname" class="form-label">Apellido*</label>
-            <input type="text" class="form-control" id="surname" name="surname" placeholder="Ingrese su apellido" autocomplete="off" [(ngModel)]="contact.surname" required>
+            <label for="lastName" class="form-label">Apellido*</label>
+            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Ingrese su apellido" autocomplete="off" [(ngModel)]="contact.lastName" required>
         </div>
         <div class="form-group">
             <label for="email"  class="form-label">Correo electrónico*</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Ingrese su correo electrónico" autocomplete="off" [(ngModel)]="contact.email" required>
+            <input type="email" class="form-control" id="email" name="email" placeholder="email@example.com" autocomplete="off" [(ngModel)]="contact.email" required>
         </div>
         <div class="form-group">
             <label for="message" class="form-label">Mensaje*</label>
